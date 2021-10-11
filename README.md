@@ -1,2 +1,2 @@
 # a_tests
-python -m run
+python -m main

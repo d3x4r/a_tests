@@ -1,16 +1,14 @@
 from selenium.webdriver.common.by import By
-from .abstract_base_actions import AbstractBaseActions
+# from .abstract_base_actions import AbstractBaseActions
 
 
-class NotepadActions(AbstractBaseActions):
+class NotepadActions():
     def __init__(self, app):
+        print('boinddoing!!!!!!!!!!')
         self.app = app
 
     def open(self, path):
         self.app.start(path)
-
-    def connect(*args):
-        return NotepadActions(*args)
 
     def open_new_tab(self):
         window = self.app["новый 1 - Notepad++ [Administrator]"]

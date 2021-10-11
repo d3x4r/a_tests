@@ -4,6 +4,7 @@ import pytest
 def run_browser_tests():
     pytest.main(['-s', '--browser', 'firefox', 'tests/web'])
 
+
 def run_notepad_tests():
     pytest.main(['-s', '-v', 'tests/notepad'])
 
