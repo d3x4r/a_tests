@@ -1,7 +1,3 @@
-from selenium.webdriver.common.by import By
-# from .abstract_base_actions import AbstractBaseActions
-
-
 class NotepadActions():
     def __init__(self, app):
         self.app = app
