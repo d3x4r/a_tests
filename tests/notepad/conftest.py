@@ -4,7 +4,7 @@ from pywinauto.application import Application
 
 @pytest.fixture()
 def app(request):
-    app = Application(backend='win32')
+    app = Application(backend='uia')
 
     yield app
 
