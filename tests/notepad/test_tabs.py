@@ -2,7 +2,7 @@ from actions.base_actions import BaseActions
 from actions.mediator import Mediator
 
 
-def test_search_input(app):
+def test_count_tabs(app):
     APP_PATH = r'C:\Program Files\Notepad++\notepad++.exe'
     Notepad = BaseActions(Mediator(), app)
     Notepad.open(APP_PATH)

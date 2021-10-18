@@ -4,7 +4,6 @@ from selenium.webdriver.common.by import By
 
 class NotepadActions():
     def __init__(self, app):
-        print('boinddoing!!!!!!!!!!')
         self.app = app
 
     def open(self, path):
