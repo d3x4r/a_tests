@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from enum import Enum
 from .browser_actions import BrowserActions
 from .notepad_actions import NotepadActions
+from .java_actions import JavaActions
 
 
 class EventType(Enum):
@@ -17,7 +18,7 @@ class IBaseActions(ABC):
     def open(self, value): pass
 
 
-class BaseActions(IBaseActions, BrowserActions, NotepadActions):
+class BaseActions(IBaseActions, BrowserActions, NotepadActions, JavaActions):
     def __init__(self, mediator, app):
         self.mediator = mediator
         self.app = app
