@@ -1,14 +1,18 @@
 from abc import ABC
+
+from actions.java_actions import JavaActions
 from .browser_actions import BrowserActions
 from .notepad_actions import NotepadActions
 from selenium.webdriver import Firefox, Chrome
 from enum import Enum
 from .base_actions import EventType
+import importlib
 
 
 class AppType(Enum):
     NOTEPAD = 1
     WEB = 2
+    JAVA = 3
 
 
 class IMediator(ABC):
@@ -17,9 +21,11 @@ class IMediator(ABC):
 
 class Mediator(IMediator):
     def check_sender_type(self, app):
-
+        RemoteSwingLibrary = importlib.import_module('RemoteSwingLibrary')
         if isinstance(app, Firefox) or isinstance(app, Chrome):
             return AppType.WEB
+        elif(isinstance(app, RemoteSwingLibrary.RemoteSwingLibrary().__class__)):
+            return AppType.JAVA
         else:
             # ToDo Добавить проверку по типу
             return AppType.NOTEPAD
@@ -32,13 +38,19 @@ class Mediator(IMediator):
             if sender_type == AppType.WEB:
                 BrowserActions.__init__(sender, sender.app)
 
-            if sender_type == AppType.NOTEPAD:
+            elif sender_type == AppType.NOTEPAD:
                 NotepadActions.__init__(sender, sender.app)
+
+            elif sender_type == AppType.JAVA:
+                JavaActions.__init__(sender, sender.app)
 
         elif event_type == EventType.OPEN:
 
             if sender_type == AppType.WEB:
                 BrowserActions.open(sender, *args)
 
-            if sender_type == AppType.NOTEPAD:
+            elif sender_type == AppType.NOTEPAD:
                 NotepadActions.open(sender, *args)
+
+            elif sender_type == AppType.JAVA:
+                JavaActions.open(sender, *args)
