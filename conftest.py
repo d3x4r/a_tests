@@ -1,8 +1,12 @@
 import pytest
 import logging
-
+import sys
+import os
 
 LOGGER = logging.getLogger(__name__)
+
+lib_dir = os.path.dirname('./')
+sys.path.append(os.path.join(lib_dir, 'remoteswinglibrary-2.3.0.jar'))
 
 
 @pytest.fixture(autouse=True, scope='function')
