@@ -8,7 +8,3 @@ def test_count_tabs(app):
     Notepad.open(APP_PATH)
     Notepad.open_new_tab()
     Notepad.tab_count_is_correct(2)
-    Notepad.open_new_tab()
-    Notepad.open_new_tab()
-    Notepad.open_new_tab()
-    Notepad.tab_count_is_correct(5)
